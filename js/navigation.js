@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!items.length) return;
 
   const siteNav = document.querySelector(".site-nav");
+  let currentActiveLink = items[0].link;
 
   function getStickyOffset() {
     const siteNavHeight =
@@ -51,13 +52,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
     });
-    // console.log("ACTIVE:", activeLink.textContent);
-    activeLink.scrollIntoView({
-      behavior: "auto",
-      inline: "center",
-      block: "nearest"
-    });
 
+    // console.log("ACTIVE:", activeLink.textContent);
+
+    if (
+      window.innerWidth <= 768 &&
+      currentActiveLink !== activeLink
+    ) {
+      currentActiveLink = activeLink;
+
+      activeLink.scrollIntoView({
+        behavior: "auto",
+        inline: "center",
+        block: "nearest"
+      });
+    }
   }
 
   function updateActiveLink() {

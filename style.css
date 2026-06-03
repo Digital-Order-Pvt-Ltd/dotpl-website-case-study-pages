@@ -207,7 +207,7 @@
       max-width: var(--max-wide);
       margin: 0 auto;
       /* padding: 5rem var(--side-pad) 4.5rem; */
-      padding: 3rem var(--side-pad) 2.5rem;
+      padding: 1rem var(--side-pad) 1rem;
     }
 
     .hero__eyebrow {
@@ -1151,15 +1151,5 @@ main > section {
 
   main > section {
     scroll-margin-top: 50px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    align-items: flex-start;
-  }
-
-  .hero__content {
-    padding-top: 90px;
   }
 }

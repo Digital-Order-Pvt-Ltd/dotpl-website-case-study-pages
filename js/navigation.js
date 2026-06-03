@@ -33,26 +33,36 @@ document.addEventListener("DOMContentLoaded", () => {
     return siteNavHeight + chapterNavHeight;
   }
 
-  function setActive(activeLink) {
+function setActive(activeLink) {
 
-    items.forEach(({ link }) => {
+  items.forEach(({ link }) => {
 
-      if (link === activeLink) {
-        link.classList.add("active");
-        link.setAttribute(
-          "aria-current",
-          "true"
-        );
-      } else {
-        link.classList.remove("active");
-        link.removeAttribute(
-          "aria-current"
-        );
-      }
+    if (link === activeLink) {
+      link.classList.add("active");
+      link.setAttribute(
+        "aria-current",
+        "true"
+      );
+    } else {
+      link.classList.remove("active");
+      link.removeAttribute(
+        "aria-current"
+      );
+    }
 
+  });
+
+  if (window.innerWidth <= 768) {
+
+    activeLink.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest"
     });
 
   }
+
+}
 
 function updateActiveLink() {
 

@@ -1153,3 +1153,13 @@ main > section {
     scroll-margin-top: 50px;
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    align-items: flex-start;
+  }
+
+  .hero__content {
+    padding-top: 90px;
+  }
+}

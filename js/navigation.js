@@ -54,35 +54,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  function updateActiveLink() {
+function updateActiveLink() {
 
-    const offset = getStickyOffset();
+  const offset = getStickyOffset();
 
-    let closestItem = null;
-    let closestDistance = Infinity;
+  let activeItem = items[0];
 
-    items.forEach(item => {
+  items.forEach(item => {
 
-      const rect =
-        item.target.getBoundingClientRect();
+    const top =
+      item.target.getBoundingClientRect().top;
 
-      const distance = Math.abs(
-        rect.top - offset
-      );
-
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestItem = item;
-      }
-
-    });
-
-    if (closestItem) {
-      setActive(closestItem.link);
+    if (top <= offset) {
+      activeItem = item;
     }
 
-  }
+  });
 
+  setActive(activeItem.link);
+
+}
   let ticking = false;
 
   function onScroll() {

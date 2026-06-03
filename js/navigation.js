@@ -33,57 +33,54 @@ document.addEventListener("DOMContentLoaded", () => {
     return siteNavHeight + chapterNavHeight;
   }
 
-function setActive(activeLink) {
+  function setActive(activeLink) {
 
-  items.forEach(({ link }) => {
+    items.forEach(({ link }) => {
 
-    if (link === activeLink) {
-      link.classList.add("active");
-      link.setAttribute(
-        "aria-current",
-        "true"
-      );
-    } else {
-      link.classList.remove("active");
-      link.removeAttribute(
-        "aria-current"
-      );
-    }
+      if (link === activeLink) {
+        link.classList.add("active");
+        link.setAttribute(
+          "aria-current",
+          "true"
+        );
+      } else {
+        link.classList.remove("active");
+        link.removeAttribute(
+          "aria-current"
+        );
+      }
 
-  });
-
-  if (window.innerWidth <= 768) {
-
+    });
+    // console.log("ACTIVE:", activeLink.textContent);
     activeLink.scrollIntoView({
-      behavior: "smooth",
+      behavior: "auto",
       inline: "center",
       block: "nearest"
     });
 
   }
 
-}
+  function updateActiveLink() {
 
-function updateActiveLink() {
+    const offset = getStickyOffset();
 
-  const offset = getStickyOffset();
+    let activeItem = items[0];
 
-  let activeItem = items[0];
+    items.forEach(item => {
 
-  items.forEach(item => {
+      const top =
+        item.target.getBoundingClientRect().top;
 
-    const top =
-      item.target.getBoundingClientRect().top;
+      if (top <= offset) {
+        activeItem = item;
+      }
 
-    if (top <= offset) {
-      activeItem = item;
-    }
+    });
 
-  });
+    setActive(activeItem.link);
 
-  setActive(activeItem.link);
+  }
 
-}
   let ticking = false;
 
   function onScroll() {

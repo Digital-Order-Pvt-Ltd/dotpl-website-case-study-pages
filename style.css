@@ -236,7 +236,7 @@
       font-family: var(--font-display);
       /* font-size: clamp(2.2rem, 5vw, 4.25rem); */
       font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1.08;
       letter-spacing: -0.02em;
       color: #ffffff;
@@ -255,10 +255,31 @@
       font-family: var(--font-body);
       font-size: clamp(0.95rem, 1.4vw, 1.15rem);
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.75);
       max-width: 600px;
       margin-bottom: 1rem;
       line-height: 1.65;
+    }
+
+    .hero__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero__text {
+      flex: 1;
+    }
+
+    .hero__logo {
+      flex-shrink: 0;
+    }
+
+    .hero__logo img {
+      width: 220px;
+      height: auto;
+      display: block;
     }
 
     .hero__meta-row {
@@ -1042,114 +1063,145 @@
         text-align: left;
       }
     }
-/* =============================================
+
+    /* =============================================
    CHAPTER NAVIGATION
 ============================================= */
-main > section {
-    scroll-margin-top: 120px;
-}
-/* =============================================
+    main>section {
+      scroll-margin-top: 120px;
+    }
+
+    /* =============================================
    STICKY CHAPTER NAVIGATION
 ============================================= */
 
-.chapter-nav {
-  position: sticky;
-  top: 52px;
-  z-index: 90;
+    .chapter-nav {
+      position: sticky;
+      top: 52px;
+      z-index: 90;
 
-  margin: 1.75rem 0 2.25rem;
-  padding: 0.95rem 1rem;
+      margin: 1.75rem 0 2.25rem;
+      padding: 0.95rem 1rem;
 
-  background: rgba(253, 252, 250, 0.96);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+      background: rgba(253, 252, 250, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
 
-  border: 1px solid var(--rule);
-  border-radius: 14px;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
 
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.04),
-    0 10px 28px rgba(17, 19, 24, 0.05);
-}
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        0 10px 28px rgba(17, 19, 24, 0.05);
+    }
 
-.chapter-nav__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  align-items: center;
-}
+    .chapter-nav__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      align-items: center;
+    }
 
-.chapter-nav__links a {
-  position: relative;
-  display: inline-block;
-  padding: 0.2rem 0 0.45rem;
+    .chapter-nav__links a {
+      position: relative;
+      display: inline-block;
+      padding: 0.2rem 0 0.45rem;
 
-  text-decoration: none;
-  color: var(--ink-secondary);
+      text-decoration: none;
+      color: var(--ink-secondary);
 
-  font-family: var(--font-display);
-  font-size: 0.92rem;
-  font-weight: 600;
-  line-height: 1.2;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.2;
 
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
 
-.chapter-nav__links a:hover {
-  color: var(--brand);
-}
+    .chapter-nav__links a:hover {
+      color: var(--brand);
+    }
 
-.chapter-nav__links a.active,
-.chapter-nav__links a[aria-current="true"] {
-  color: var(--brand);
-  border-bottom-color: var(--brand);
-}
+    .chapter-nav__links a.active,
+    .chapter-nav__links a[aria-current="true"] {
+      color: var(--brand);
+      border-bottom-color: var(--brand);
+    }
 
-@media (max-width: 768px) {
-  .chapter-nav {
-    top: 50px;
-    margin: 1.25rem 0 1.75rem;
-    padding: 0.85rem 0.9rem;
-    border-radius: 12px;
-  }
+    @media (max-width: 768px) {
+      .chapter-nav {
+        top: 50px;
+        margin: 1.25rem 0 1.75rem;
+        padding: 0.85rem 0.9rem;
+        border-radius: 12px;
+      }
 
-  .chapter-nav__links {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 1.1rem;
+      .chapter-nav__links {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 1.1rem;
 
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
 
-  .chapter-nav__links::-webkit-scrollbar {
-    display: none;
-  }
+      .chapter-nav__links::-webkit-scrollbar {
+        display: none;
+      }
 
-  .chapter-nav__links a {
-    white-space: nowrap;
-    flex-shrink: 0;
-    font-size: 0.9rem;
-  }
-}
+      .chapter-nav__links a {
+        white-space: nowrap;
+        flex-shrink: 0;
+        font-size: 0.9rem;
+      }
+    }
 
-/* Make anchor jumps land with the chapter visible */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 50px;
-}
+    /* Make anchor jumps land with the chapter visible */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 50px;
+    }
 
-main > section {
-  scroll-margin-top: 50px;
-}
+    main>section {
+      scroll-margin-top: 50px;
+    }
 
-@media (max-width: 768px) {
-  html {
-    scroll-padding-top: 50px;
-  }
+    @media (max-width: 768px) {
+      html {
+        scroll-padding-top: 50px;
+      }
 
-  main > section {
-    scroll-margin-top: 50px;
-  }
-}
+      main>section {
+        scroll-margin-top: 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .hero__content {
+        position: relative;
+      }
+
+      .hero__logo {
+        position: absolute;
+        inset: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        pointer-events: none;
+      }
+
+      .hero__logo img {
+        width: 70%;
+        max-width: 280px;
+        opacity: 0.25;
+      }
+
+      .hero__text {
+        position: relative;
+        z-index: 2;
+      }
+    }
